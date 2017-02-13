@@ -36,6 +36,7 @@ unique="$datasets/bed/cpg.bed.gz"
 
 answer_3=$(gzcat $unique \
     | cut -f4 \
+    | sort -g \
     | uniq \
     | wc -l)
 
@@ -58,7 +59,7 @@ echo "answer-4: $answer_4"
 
 Hamlet="$datasets/misc/hamlet.txt"
 
-answer_5=$(grep bloody $Hamlet \
+answer_5=$(grep -i bloody $Hamlet \
     | wc -w)
 
 echo "answer-5: $answer_5"
